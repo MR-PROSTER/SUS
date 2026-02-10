@@ -41,7 +41,7 @@ const Body = () => {
   const sendFileData = async (fileName:string)=>{
     if (!fileName) return;
     try{
-    const response = await fetch('http://localhost:4646/upload',{
+    const response = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/upload`,{
         method:'POST',
         headers: {
             'Content-Type':'application/json'
